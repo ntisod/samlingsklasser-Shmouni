@@ -18,6 +18,7 @@ namespace Samlingsklasser
             Console.WriteLine("5. Tärningskast med SortedList (Övning 1).");
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
+            Console.WriteLine("8. övning2");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -46,11 +47,42 @@ namespace Samlingsklasser
                 case "7":
                     StackExempel();
                     break;
+                case "8":
+                    övning2();
+                    break;
             }
 
             Console.ReadKey();
         }
 
+        static void övning2()
+        {
+            List<double> övning2 = new List<double>();
+            
+            // jag använder while för att man ska mata in så många tal som behövs för att en person kankse vill ha hundra tal och en annan 20 så jag använder while
+            int i = 1;
+            while (true)
+            {
+               //för att användaren ska mata in ett tal så änvänder jag console Writeline. test
+                Console.WriteLine("Mata in ett tal: ");
+
+                i = int.Parse(Console.ReadLine());
+                if (i == 0)
+                {
+                    //om användaren skriver in 0 så kommer programmet stängas ner.
+                    Environment.Exit(1);
+                }
+                else
+                {
+                    //räknar ut medelvärdet.
+                    övning2.Add(i);
+                    Console.WriteLine("Medelvärdet: " + övning2.Average());
+                }
+            }
+
+
+
+        }
         static void DictionaryExempel()
         {
             //Skapa en dictionary med string som nyckel och int som värde
@@ -74,11 +106,37 @@ namespace Samlingsklasser
         static void DiceSortedList()
         {
             //Övning 1
+            //Skapa en dictionary med int som nyckel och int som värde
+            SortedList<int, int> resultat = new SortedList<int, int>();
+
+            //skapa ett Random objekt för att slumpa
+            Random random = new Random();
+
+            //Gör tusen upprepnigar
+            for (int i = 0; i < 1000; i++)
+            {
+                //Slumpa tal mellan 1 och 6
+                int tal = random.Next(1, 7);
+
+                //Lägg nyckel om denna inte redan finns
+                if (!resultat.ContainsKey(tal))
+                    resultat.Add(tal, 0);
+
+                //Öka förekomsten av tal
+                resultat[tal]++;
+            }
+
+            //Visa resultatet
+            foreach (KeyValuePair<int, int> kvp in resultat)
+            {
+                Console.WriteLine("Nyckel: {0} Värde: {1}", kvp.Key, kvp.Value);
+            }
 
         }
 
         static void DiceDictionary()
         {
+            //Övning 1
             //Skapa en dictionary med int som nyckel och int som värde
             Dictionary<int, int> resultat = new Dictionary<int, int>();
 
