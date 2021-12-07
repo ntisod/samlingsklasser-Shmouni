@@ -19,6 +19,7 @@ namespace Samlingsklasser
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
             Console.WriteLine("8. övning2");
+            Console.WriteLine("9. övning3");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -50,9 +51,18 @@ namespace Samlingsklasser
                 case "8":
                     övning2();
                     break;
+                case "9":
+                    övning3();
+                    break;
             }
 
             Console.ReadKey();
+        }
+        static void övning3()
+        {
+
+
+
         }
 
         static void övning2()
